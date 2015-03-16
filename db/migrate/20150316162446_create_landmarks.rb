@@ -1,6 +1,6 @@
-class CreatePointOfInterests < ActiveRecord::Migration
+class CreateLandmarks < ActiveRecord::Migration
   def change
-    create_table :point_of_interests do |t|
+    create_table :landmarks do |t|
       t.string :name
       t.text :link
       t.integer :search_id

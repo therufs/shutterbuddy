@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class PointOfInterestTest < ActiveSupport::TestCase
+class LandmarkTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end
