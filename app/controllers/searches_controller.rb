@@ -1,6 +1,7 @@
 class SearchesController < ApplicationController
   def index
     @searches = Search.all
+    # do database stuff if params[:city]
   end
 
   def show
