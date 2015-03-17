@@ -1,11 +1,11 @@
 class SearchesController < ApplicationController
   def index
-    @searches = Search.all
-    # do database stuff if params[:city]
+    @search = Search.new
+    @search.name = params[:city] 
+    # do database stuff if params[:city] USING Google Places API
   end
 
   def show
-    @search = Search.new
   end
 
   def new
