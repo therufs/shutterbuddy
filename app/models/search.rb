@@ -7,14 +7,16 @@ class Search < ActiveRecord::Base
 
 
   def map_query
-    #  tourism = ["amusement_park", aquarium,casino, church, mosque,library,hindu_temple, embassy, muesum, night_club, park, place_of_worship, stadium, synagogue,]
-
-    "tourism+in+#{name.split.join('+')}"
-    #tourism+in+
+    if name.present?
+      "tourism+in+#{name.split.join('+')}"
+    else
+      "Rome+Italy"
+    end
   end
 
   def get_landmark_names
     landmark_names = []
+    if name.present?
     url = "https://maps.googleapis.com/maps/api/place/textsearch/json?query=landmarks+in+#{name.split.join('+')}&key=#{ENV['GOOGLE_KEY']}"
 
     response = HTTParty.get(url, headers: {"Referer" => "http://localhost:3000/"})
@@ -25,19 +27,8 @@ class Search < ActiveRecord::Base
       landmark_names << r["name"]
 
     end
+  end
 
     landmark_names
   end
-
-  # def save_landmarks
-#   HTTParty.post("http://sentiment.vivekn.com/api/text/", body: { txt: text } )
-# end
-  #
-  # def save_landmarks
-  #   # do database stuff USING Google Places API and HTTParty
-  #   # Make landmarks like landmarks << Landmark.new(..........)
-  # end
-
-
-
 end
