@@ -1,7 +1,7 @@
 class SearchesController < ApplicationController
   def index
     @search = Search.create!(name: params[:city])
-    @landmarks = @search.get_landmarks
+    @landmark_names = @search.get_landmark_names
   end
 
   def show
