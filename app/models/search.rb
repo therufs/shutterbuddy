@@ -1,10 +1,6 @@
 class Search < ActiveRecord::Base
   has_many :landmarks
 
-  # def show_map
-  #   puts HTTParty.get("https://www.google.com/maps/embed/v1/search?key=#{ENV['GOOGLE_KEY']}&q=record+stores+in+Seattle")
-  # end
-
 
   def map_query
     #  tourism = ["amusement_park", aquarium,casino, church, mosque,library,hindu_temple, embassy, muesum, night_club, park, place_of_worship, stadium, synagogue,]
