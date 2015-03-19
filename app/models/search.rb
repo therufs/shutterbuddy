@@ -25,9 +25,8 @@ class Search < ActiveRecord::Base
         landmark_names << r["name"]
       end
     end
-  end
-
+  
     landmark_names
-
   end
+
 end
