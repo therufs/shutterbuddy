@@ -1,17 +1,5 @@
 Rails.application.routes.draw do
-  get 'searches/index'
-
-  get 'searches/show'
-
-  get 'searches/new'
-
-  get 'searches/create'
-
-  get 'searches/update'
-
-  get 'searches/destroy'
-
-  get 'searches/edit'
+  resources :searches
 
 
   # The priority is based upon order of creation: first created -> highest priority.
