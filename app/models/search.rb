@@ -1,5 +1,6 @@
 class Search < ActiveRecord::Base
   has_many :landmarks
+  accepts_nested_attributes_for :landmarks
 
 
   def map_query
@@ -25,7 +26,7 @@ class Search < ActiveRecord::Base
         landmark_names << r["name"]
       end
     end
-  
+
     landmark_names
   end
 
