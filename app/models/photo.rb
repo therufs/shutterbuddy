@@ -6,7 +6,7 @@ class Photo < ActiveRecord::Base
     FlickRaw.shared_secret=ENV['FLICKR_SECRET']
 
     # list   = flickr.photos.getRecent
-    list = flickr.photos.search(tags:'Eiffel Tower', license: 4, privacy_filter: 1, safe_search: 1, content_type: 1, per_page: 5 )
+    list = flickr.photos.search(tags:'Eiffel Tower', license: 3, privacy_filter: 1, safe_search: 1, content_type: 1, per_page: 5 )
 
     id     = list[0].id
     secret = list[0].secret

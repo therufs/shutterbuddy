@@ -23,4 +23,17 @@ class SearchesController < ApplicationController
 
   def edit
   end
+
+
+
+
+  
+  private def search_params
+    params.require(:search).permit(:name,
+                                  :landmarks_attributes => {:name, :link, :search_id
+                                                            :photo_attributes => {:title, :url, :owner
+                                       }
+                                     }
+                                    )
+  end
 end
