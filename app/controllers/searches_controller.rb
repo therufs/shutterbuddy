@@ -1,7 +1,9 @@
 class SearchesController < ApplicationController
+
   def index
     @search = Search.create!(name: params[:city])
     @landmark_names = @search.get_landmark_names
+
     # @image_results = Flickr.all
   end
 
@@ -10,9 +12,11 @@ class SearchesController < ApplicationController
   end
 
   def new
+    @results = @landmark_names.refine_selection
   end
 
   def create
+    @itenerary = Landmark
   end
 
   def update
@@ -26,14 +30,11 @@ class SearchesController < ApplicationController
 
 
 
-
-  
   private def search_params
     params.require(:search).permit(:name,
-                                  :landmarks_attributes => {:name, :link, :search_id
-                                                            :photo_attributes => {:title, :url, :owner
-                                       }
-                                     }
+                                  landmarks_attributes: [:name, :link, :search_id,
+                                                            photo_attributes: [:title, :url, :owner]]
                                     )
   end
+
 end

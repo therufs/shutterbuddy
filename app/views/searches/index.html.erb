@@ -14,8 +14,10 @@ frameborder="0" style="border:0"
 src=https://www.google.com/maps/embed/v1/search?key=<%= ENV['GOOGLE_KEY'] %>&q=<%= @search.map_query %>&zoom=12>
 </iframe>
 
-<!-- surround the list in a form -->
-<!-- submit the form and generate an array of checked names -->
-<% @landmark_names.each do |n| %>
-  <p> <%= check_box_tag(n) %><%= n %></p>
+
+<%= form_for @landmark_names do |n| %>
+  <div>
+    <%= f.label :landmarks %>
+    <%= n.check_box :landmarks %>Yes 
+    <% @landmark_names.get_pictures %>
 <% end %>
