@@ -17,7 +17,8 @@ class SearchesController < ApplicationController
   end
 
   def create
-    @selected_landmarks = params[:landmarks]
+    selected_landmarks = params[:landmarks]
+    @selected_landmarks = Photo.get_images_for_location(selected_landmarks)
   end
 
   def update
