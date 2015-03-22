@@ -17,7 +17,7 @@ class SearchesController < ApplicationController
   end
 
   def create
-    @itenerary = Landmark
+    @selected_landmarks = params[:landmarks]
   end
 
   def update
