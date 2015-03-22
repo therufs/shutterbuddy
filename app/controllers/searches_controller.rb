@@ -12,7 +12,8 @@ class SearchesController < ApplicationController
   end
 
   def new
-    @results = @landmark_names.refine_selection
+  #   @results = @landmark_names.refine_selection
+  @landmark_names = Landmark.new
   end
 
   def create

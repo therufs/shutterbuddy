@@ -14,10 +14,10 @@ frameborder="0" style="border:0"
 src=https://www.google.com/maps/embed/v1/search?key=<%= ENV['GOOGLE_KEY'] %>&q=<%= @search.map_query %>&zoom=12>
 </iframe>
 
-
-<%= form_for @landmark_names do |n| %>
-  <div>
-    <%= f.label :landmarks %>
-    <%= n.check_box :landmarks %>Yes 
-    <% @landmark_names.get_pictures %>
+<%= form_tag do %>
+  <% @landmark_names.each do |n| %>
+    <div>
+      <%= check_box_tag :landmarks %>
+      <%= label_tag n %>
+  <% end %>
 <% end %>

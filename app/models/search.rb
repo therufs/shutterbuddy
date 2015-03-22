@@ -33,7 +33,7 @@ class Search < ActiveRecord::Base
   def refine_selection(search)
     selections = []
     @landmark_names.each do |c|
-      if name.checkbox == true
+      if c.name.checkbox == true
         selections << name
       else
         return selections
