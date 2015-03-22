@@ -11,6 +11,10 @@ class Photo < ActiveRecord::Base
     FlickRaw.url(@flickr_result)
   end
 
+  def owner
+    
+  end
+
   # def self.get_random_image
   #
   #   # list   = flickr.photos.getRecent

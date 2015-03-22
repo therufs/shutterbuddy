@@ -2,6 +2,8 @@
 
 
 <% @selected_landmarks.each do |photo| %>
-  <!-- <%= check_box_tag "photo[]", photo %> -->
-  <%= image_tag photo.url  %>
-<% end %>
+  <div>
+    <%= check_box_tag "photos[]", photo %>
+    <%= image_tag photo.url  %>
+  <% end %>
+<p>  <%= submit_tag "Submit" %> </p>
