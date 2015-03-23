@@ -21,13 +21,13 @@ class SearchesController < ApplicationController
   end
 
   def create
+    byebug
     @search = Search.new(name: params[:city])
     if @search.save
       redirect_to @search
     else
       "invalid search terms, please enter a city name"
     end
-
     selected_landmarks = params[:landmarks]
     @selected_landmarks = selected_landmarks
   end

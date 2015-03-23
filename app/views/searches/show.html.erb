@@ -4,7 +4,6 @@
 
 
 <%= form_tag(@search) do %>
-<% byebug %>
   <% @selected_landmarks.each do |photo| %>
     <div>
       <%= check_box_tag "photos[]", photo %>
