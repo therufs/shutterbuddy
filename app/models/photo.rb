@@ -12,7 +12,7 @@ class Photo < ActiveRecord::Base
   end
 
   def owner
-    
+
   end
 
   # def self.get_random_image
@@ -29,9 +29,13 @@ class Photo < ActiveRecord::Base
   # end
 
   def self.get_images_for_location(landmark_names)
-    search_results = flickr.photos.search(tags: landmark_names.join(", "), license: 3, privacy_filter: 1, safe_search: 1, content_type: 1, per_page: 5 )
+    photos = []
+    for landmark_name in landmark_names
+      search_results = flickr.photos.search(tags: landmark_name, license: 3, privacy_filter: 1, safe_search: 1, content_type: 1, per_page: 5 )
 
-    search_results.map { |result| Photo.new(result) }
+      photos += search_results.map { |result| Photo.new(result) }
+    end
+    photos
   end
 
 end
