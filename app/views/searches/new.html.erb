@@ -1,15 +1,2 @@
 
 <h1>Select Your Photos</h1>
-
-<%= form_for(@search) do |f| %>
- <%= f.fields_for :photos do |ff| %>
- <% @selected_landmarks.each do |photo| %>
-<div>
-  <%= ff.check_box "photos[]", photo.url %>
-  <%= image_tag photo.url  %>
-</div>
-<% end %>
-<% end %>
-<p>  <%= submit_tag "Submit" %> </p>
-<% end %>
-<h3><%= link_to "Start Search Again", searches_path %></h3>
