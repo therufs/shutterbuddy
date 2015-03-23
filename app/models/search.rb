@@ -1,7 +1,9 @@
 class Search < ActiveRecord::Base
   has_many :landmarks
-  accepts_nested_attributes_for :landmarks
+  has_many :photos, through: :landmarks
 
+  accepts_nested_attributes_for :landmarks
+  accepts_nested_attributes_for :photos
 
   def map_query
     if name.present?
