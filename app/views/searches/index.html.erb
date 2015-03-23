@@ -21,6 +21,7 @@ src=https://www.google.com/maps/embed/v1/search?key=<%= ENV['GOOGLE_KEY'] %>&q=<
       <div>
         <%= check_box_tag "landmarks[]", n %>
         <%= label_tag n %>
+      </div>
     <% end %>
   <p>  <%= submit_tag "Submit" %> </p>
   <% end %>

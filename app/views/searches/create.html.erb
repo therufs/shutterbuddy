@@ -1,9 +1,11 @@
 <h1>Searches#create</h1>
 
-
-<% @selected_landmarks.each do |photo| %>
-  <div>
-    <%= check_box_tag "photos[]", photo %>
-    <%= image_tag photo.url  %>
+<%= form_tag('/albums', method: :get) do  %>
+  <% @selected_landmarks.each do |photo| %>
+    <div>
+      <%= check_box_tag "photos[]", photo %>
+      <%= image_tag photo.url  %>
+    </div>
   <% end %>
-<p>  <%= submit_tag "Submit" %> </p>
+  <p>  <%= submit_tag "Submit" %> </p>
+<% end %>

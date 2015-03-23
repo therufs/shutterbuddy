@@ -5,20 +5,4 @@ class Landmark < ActiveRecord::Base
   def get_results
   end
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 end
