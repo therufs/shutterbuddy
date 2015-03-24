@@ -2,9 +2,18 @@ class SearchesController < ApplicationController
   before_action :set_search, only:[:show, :destroy, :update]
 
   def index
-    @search = Search.create!(name: params[:city])
+    @search = Search.new
+    # Often contains default values for instance variables.
+    # Doesn't usually create anything.
+    # Should definitely populate whatever you need in /index.html.
 
-    @landmark_names = @search.get_landmark_names
+    # You could: use an image placeholder
+    # OR: you could create an instance variable that is *just* a city name
+    #     and not a Search object.
+    unless @city_name
+        @city_name = "Rome"
+    end
+
     @photos = params[:photos]
 
     # @image_results = Flickr.all
@@ -21,7 +30,6 @@ class SearchesController < ApplicationController
   end
 
   def create
-    byebug
     @search = Search.new(name: params[:city])
     if @search.save
       redirect_to @search

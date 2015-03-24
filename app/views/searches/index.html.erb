@@ -1,8 +1,14 @@
 <h1>Search Shutterbuddy!</h1>
 <p> Enter the city you visited in the search box:</p>
 
-<%= form_tag nil, method: :get do %>
-  <%= text_field_tag :city, params[:city], id: "search-bar", class: "controls", placeholder: "Search Box" %>
+<%= form_for @search, html: {class: "controls", id: "search-bar", placeholder: "Search Box"} do |f| %>
+  <%= f.text_field :city_name %>
+  <%= f.submit %>
+<%#= form_tag nil, method: :get do %> <%# SORCERY %>
+  <%#= label_tag(:q, "Search for:") %>
+  <%#= text_field_tag(:q) %>
+  <%#= text_field_tag :city, params[:city], id: "search-bar", class: "controls", placeholder: "Search Box" %>
+  <% @city_name = params[:city] %>
 <% end %>
 
 
@@ -11,10 +17,11 @@
 width="700"
 height="600"
 frameborder="0" style="border:0"
-src=https://www.google.com/maps/embed/v1/search?key=<%= ENV['GOOGLE_KEY'] %>&q=<%= @search.map_query %>&zoom=12>
+src=https://www.google.com/maps/embed/v1/search?key=<%= ENV['GOOGLE_KEY'] %>&q=<%= @city_name %>&zoom=12>
 </iframe>
 
-<% if @landmark_names.empty? == false %>
+
+<% if @landmark_names %>
   <p> Check the places you visited on your trip! </p>
   <%= form_tag do %>
     <% @landmark_names.each do |n| %>

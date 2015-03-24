@@ -2,6 +2,8 @@ class Search < ActiveRecord::Base
   has_many :landmarks
   has_many :photos, through: :landmarks
 
+  attr_accessor :city_name
+
   accepts_nested_attributes_for :landmarks
   accepts_nested_attributes_for :photos
 
